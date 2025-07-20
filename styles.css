@@ -445,7 +445,7 @@ span{
 .about__perfil,.about__content{
   justify-self: center;
       opacity: 0;
-      animation: aparecer 1s ease-in forwards;
+      animation: aparecer 2s ease-in forwards;
       text-align: center;
      
 }
