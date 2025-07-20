@@ -68,12 +68,14 @@
                             <h1 class="about__name">
                                 Luciclei Oliveira
                             </h1>
-                            <h2 class="about__profession">
-                                Dev Web
+                             <h2 class="about__profession" id="texto">
+                                
                             </h2>
                             <p class="about__description">
-                               Criação de <b>Páginas Web</b> e <b>Interfaces Criativas e Exclusivas</b>. Ao longo da minha trajetória, tenho consolidado expertise por meio de projetos distintos, cultivando uma clientela não apenas satisfeita, mas verdadeiramente encantada com os resultados entregues. Cada trabalho é concebido com maestria, unindo funcionalidade e estética em soluções que transcendem expectativas  💻
+                                
+                             Olá! Meu nome é Luciclei e sou um desenvolvedor web em início de carreira, com grande interesse por tecnologia e desenvolvimento de interfaces modernas. Tenho conhecimentos em <span>HTML, CSS e JavaScript,</span> e estou expandindo minhas habilidades com frameworks. Gosto de aprender na prática e busco sempre evoluir a cada projeto, criando soluções funcionais e com foco em uma boa experiência para o usuário. Este portfólio reúne alguns dos meus trabalhos e aprendizados até aqui.
                             </p>
+                            
                         </div>
 
                         <a href="contato.html" class="about__button button">Contrate-me</a>
@@ -141,7 +143,40 @@
             </span>
         </div>
     </footer>
-    
+     const frase = " Desenvolvedor Web... ";
+    const elemento = document.getElementById("texto");
+    let index = 0;
+    let apagando = false;
+
+    function loopDigitacao() {
+      if (!apagando) {
+        // Digitando
+        if (index < frase.length) {
+          elemento.textContent += frase.charAt(index);
+          index++;
+          setTimeout(loopDigitacao, 110); // Velocidade da digitação
+        } else {
+          // Espera antes de apagar
+          setTimeout(() => {
+            apagando = true;
+            loopDigitacao();
+          }, 1500); // Tempo de pausa após digitar tudo
+        }
+      } else {
+        // Apagando
+        if (index > 0) {
+          elemento.textContent = frase.substring(0, index - 1);
+          index--;
+          setTimeout(loopDigitacao, 50); // Velocidade de apagar
+        } else {
+          apagando = false;
+          setTimeout(loopDigitacao, 500); // Pausa antes de recomeçar
+        }
+      }
+    }
+
+    loopDigitacao(); // Iniciar
+  </script>
     <script src="main.js"></script>
 
 
